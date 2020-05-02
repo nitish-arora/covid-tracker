@@ -1,0 +1,32 @@
+<ng-container *ngIf="!notFound; else noNewsExist">
+  <div *ngIf="news" class="full-news-container">
+    <div class="full-news-title">{{ news.title | titlecase }}</div>
+    <div class="news-article-container">
+      <div class="news-image-container">
+        <img
+          src="assets/covid-{{ news.id }}.jpg"
+          onerror="this.onerror=null; this.src='assets/covid-1.jpg'"
+        />
+        <div class="news-summary-container">{{ news.summary }}</div>
+      </div>
+      <div class="news-description-container">
+        {{ news.description }}
+      </div>
+    </div>
+    <div class="news-full-article-container">
+      {{ news.fullArticle }}
+    </div>
+    <div class="full-news-actions">
+      <button id="btn-back" mat-raised-button color="primary" (click)="backToNews()">
+        Back
+      </button>
+    </div>
+  </div>
+</ng-container>
+<ng-template #noNewsExist>
+  <app-not-found
+    [errorDescription]="errorDescription"
+    [buttonText]="buttonText"
+    (buttonClick)="backToNews()"
+  ></app-not-found>
+</ng-template>

@@ -1,0 +1,9 @@
+.district-actions {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.district-actions > button {
+  color: white;
+  background-color: #1976d2;
+}

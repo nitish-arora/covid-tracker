@@ -1,0 +1,28 @@
+:host ::ng-deep .dashboard-container .data-table {
+  width: 100%;
+}
+
+:host ::ng-deep .dashboard-container .title {
+  font-size: 20px;
+  font-weight: 600;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1976d2;
+}
+
+:host ::ng-deep .data-table tr > th,
+:host ::ng-deep .data-table tr > td {
+  padding: 16px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+:host ::ng-deep .data-table td.state-name {
+  cursor: pointer;
+}
+
+:host ::ng-deep .data-table td.state-name:hover {
+  background-color: #a8eaff;
+}

@@ -1,0 +1,38 @@
+<div class="district-container">
+  <div class="title">{{ state + " " + title }}</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>
+          District Name
+        </th>
+        <th>
+          Total Cases
+        </th>
+        <th>
+          Active Cases
+        </th>
+        <th>
+          Recovered Cases
+        </th>
+        <th>
+          Deceased Cases
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="data-row" *ngFor="let data of districtData |keyvalue">
+        <td class="district-name">
+          {{ data.key }}
+        </td>
+        <td>{{ data.value.confirmed }}</td>
+        <td>{{ data.value.active }}</td>
+        <td>{{ data.value.recovered }}</td>
+        <td>{{ data.value.deceased }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="district-actions">
+    <button mat-raised-button id="btnBack" (click)="goToStateData()">Back</button>
+  </div>
+</div>

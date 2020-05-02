@@ -1,0 +1,37 @@
+<div class="latest-news-container">
+  <div class="latest-news-title-container">
+    <span class="latest-news-title">{{ title }}</span>
+    <button mat-raised-button id="btn-add" (click)="goToAddNewsPage()" *ngIf="isLoggedIn">
+      Add News
+    </button>
+  </div>
+  <div class="latest-news-card-list">
+    <mat-card *ngFor="let news of latestNews" class="latest-news-card">
+      <mat-card-header>
+        <mat-card-title>{{ news.title }}</mat-card-title>
+        <mat-card-subtitle>{{ news.summary }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        src="assets/covid-{{ news.id }}.jpg"
+        onerror="this.onerror=null;this.src='assets/covid-1.jpg'"
+        alt="News"
+      />
+      <mat-card-content>
+        <p>
+          {{ news.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-flat-button
+          color="primary"
+          id="btn-full"
+          (click)="readFullArticle(news.id)"
+        >
+          {{ "Read full news" | titlecase }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

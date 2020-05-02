@@ -1,0 +1,52 @@
+.app-header {
+  background-color: #1976d2;
+  color: white;
+}
+
+.app-title-container .app-logo {
+  font-size: 25px;
+  display: inline-block;
+  width: 50px;
+  height: 45px;
+  border-radius: 35px;
+  background-color: #d63232;
+  text-align: center;
+  line-height: 45px;
+  margin-right: 5px;
+}
+
+.app-title-container .app-title {
+  font-size: 25px;
+}
+
+.app-header .navbar-menu {
+  list-style: none;
+  font-size: 17px;
+  margin-left: 15px;
+  flex: 1;
+}
+
+.app-header .navbar-menu > li {
+  float: left;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.app-header .navbar-menu > li:focus {
+  outline: unset;
+}
+
+.app-header .navbar-menu > li.active {
+  border: 1px solid #10abdd;
+}
+
+.user-profile-container .username {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.user-profile-container > span.material-icons {
+  vertical-align: middle;
+  margin-left: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,75 @@
+<div class="add-news-container">
+  <div class="add-news-title">{{ title }}</div>
+  <div class="add-news-form-container">
+    <mat-card>
+      <form class="add-news-form" [formGroup]="addNewsForm" novalidate>
+        <fieldset>
+          <div class="form_group">
+            <mat-form-field class="news-form-field">
+              <mat-label>News Title</mat-label>
+              <input matInput placeholder="News Title" formControlName="title" />
+              <mat-error *ngIf="addNewsForm.get('title').hasError('required')">
+                Title is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form_group">
+            <mat-form-field class="news-form-field">
+              <mat-label>Summary</mat-label>
+              <input placeholder="Summary" matInput formControlName="summary" />
+              <mat-error *ngIf="addNewsForm.get('summary').hasError('required')">
+                Summary is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="addNewsForm.get('summary').hasError('maxlength')">
+                Summary can't be greater than <strong>100 characters</strong>.
+                You are using
+                <strong>{{
+                    addNewsForm.get("summary").errors.maxlength.actualLength
+                  }}
+                  characters</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form_group">
+            <mat-form-field class="news-form-field">
+              <mat-label>Description</mat-label>
+              <textarea placeholder="Description" matInput formControlName="description"></textarea>
+              <mat-error *ngIf="addNewsForm.get('description').hasError('required')">
+                Description is
+                <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="addNewsForm.get('description').hasError('maxlength')">
+                Description can't be greater than
+                <strong>250 characters</strong>. You are using
+                <strong>{{
+                    addNewsForm.get("description").errors.maxlength.actualLength
+                  }}
+                  characters</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form_group">
+            <mat-form-field class="news-form-field">
+              <mat-label>Full Article</mat-label>
+              <textarea placeholder="Full Article" matInput formControlName="fullArticle"></textarea>
+              <mat-error *ngIf="addNewsForm.get('fullArticle').hasError('required')">
+                Full Article is
+                <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form_group add-news-actions">
+            <button id="btn-cancel" mat-raised-button (click)="goToNews()">
+              Cancel
+            </button>
+            <button id="btn-add" mat-raised-button color="primary" [class]="!addNewsForm.valid ? 'add-disabled' : 'add-enabled'"
+              (click)="addNews()" [disabled]="!addNewsForm.valid">
+              Add News
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </mat-card>
+  </div>
+</div>

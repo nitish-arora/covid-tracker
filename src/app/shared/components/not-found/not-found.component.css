@@ -1,0 +1,21 @@
+.not-found-container {
+  margin: 20px;
+}
+
+.not-found-container .error-message {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+section.error-message .error-code {
+  margin: 0;
+  font-size: 12vw;
+  line-height: 1em;
+  opacity: 0.3;
+}
+
+section.error-message button {
+  background-color: #1976d2;
+  color: white;
+}

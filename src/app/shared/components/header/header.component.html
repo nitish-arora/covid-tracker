@@ -1,0 +1,28 @@
+<mat-toolbar class="app-header">
+  <div class="app-title-container">
+    <span class="app-logo">CT</span>
+    <span class="app-title">{{ title | uppercase }}</span>
+  </div>
+  <ul #navBarRef class="navbar-menu">
+    <li
+      [class.active]="menuItem.link === activeLink"
+      *ngFor="let menuItem of menu"
+      [routerLink]="[menuItem.link]"
+    >
+      {{ menuItem.name }}
+    </li>
+  </ul>
+  <div class="user-profile-container">    
+    <ng-container *ngIf="isLoggedIn; else loggedOut">
+      <span class="username">{{ username | titlecase }}</span>
+      <span class="material-icons" (click)="logOut()">
+        exit_to_app
+      </span>
+    </ng-container>
+    <ng-template #loggedOut>
+      <span class="material-icons" (click)="logIn()">
+        account_circle
+      </span>
+    </ng-template>
+  </div>
+</mat-toolbar>

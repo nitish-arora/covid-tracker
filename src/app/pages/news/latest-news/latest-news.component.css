@@ -1,0 +1,36 @@
+.latest-news-card-list .latest-news-card {
+  width: 35%;
+  display: inline-block;
+  margin: 20px 5%;
+}
+
+.latest-news-card img.mat-card-image {
+  max-height: 250px;
+}
+
+.latest-news-container .latest-news-title-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.latest-news-container .latest-news-title-container > button {
+  height: 35px;
+  margin-right: 15px;
+  background-color: #1976d2;
+  color: white;
+}
+
+.latest-news-card button {
+  background-color: #1976d2;
+  color: white;
+}
+
+.latest-news-container .latest-news-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1976d2;
+  flex: 1;
+  display: inline-block;
+  text-align: center;
+}

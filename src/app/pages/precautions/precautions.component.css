@@ -1,0 +1,15 @@
+.precautions-container > mat-card {
+  margin: 0 auto 20px;
+  width: 80%;
+  background: #f0f0f0;
+}
+
+.precautions-container .precautions-title {
+  font-size: 20px;
+  font-weight: 600;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1976d2;
+}

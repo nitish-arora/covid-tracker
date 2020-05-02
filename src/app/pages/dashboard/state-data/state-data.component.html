@@ -1,0 +1,35 @@
+<div class="dashboard-container">
+  <div class="title">{{ title }}</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>
+          State Name
+        </th>
+        <th>
+          Total Cases
+        </th>
+        <th>
+          Active Cases
+        </th>
+        <th>
+          Recovered Cases
+        </th>
+        <th>
+          Deceased Cases
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="data-row" *ngFor="let data of stateData">
+        <td id="testtt" class="state-name" (click)="showDistrictData(data.state)">
+          {{ data.state }}
+        </td>
+        <td>{{ data.confirmed }}</td>
+        <td>{{ data.active }}</td>
+        <td>{{ data.recovered }}</td>
+        <td>{{ data.deaths }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

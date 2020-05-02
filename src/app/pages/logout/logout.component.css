@@ -1,0 +1,21 @@
+.logout-container > .logout-card {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.logout-container > .logout-card > p.description {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #1976d2;
+}
+
+.logout-card > div.actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.logout-card > div.actions > button {
+  background-color: #1976d2;
+  color: white;
+}

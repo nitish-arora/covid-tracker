@@ -5,11 +5,14 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TestBed } from '@angular/core/testing';
 
+class MockedRouter {
+  navigate() {
+  }
+}
+
 class MockToastrService {
   warning(msg) {}
 }
-
-const mockRouter = jasmine.createSpyObj(['navigate']);
 
 describe('AuthGaurd', () => {
   let authGaurd: AuthGaurd;
@@ -20,7 +23,7 @@ describe('AuthGaurd', () => {
     TestBed.configureTestingModule({
       providers: [
         AuthGaurd,
-        { provide: Router, useValue: mockRouter },
+        { provide: Router, useClass: MockedRouter },
         { provide: ToastrService, useClass: MockToastrService },
       ],
     });
@@ -29,10 +32,8 @@ describe('AuthGaurd', () => {
     toastr = TestBed.inject(ToastrService);
   });
 
-  afterEach(() => {
-    localStorage.removeItem(LOCAL_STORAGE.TOKEN_KEY);
-    router = null;
-    toastr = null;
+  it('should be created', () => {
+    expect(authGaurd).toBeTruthy();
   });
 
   it('should return true for logged in user', () => {
@@ -41,6 +42,8 @@ describe('AuthGaurd', () => {
   });
 
   it('should return false for a logged out user', () => {
+    localStorage.removeItem(LOCAL_STORAGE.TOKEN_KEY);
+    spyOn(router, 'navigate');
     spyOn(toastr, 'warning');
     expect(authGaurd.canActivate()).toEqual(false);
     expect(toastr.warning).toHaveBeenCalled();

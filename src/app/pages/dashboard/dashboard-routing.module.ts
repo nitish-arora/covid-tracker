@@ -7,7 +7,7 @@ import { StateDataComponent } from './state-data/state-data.component';
 import { DistrictDataComponent } from './district-data/district-data.component';
 import { DashboardComponent } from './dashboard.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: APP_ROUTES.DASHBOARD,
     component: DashboardComponent,

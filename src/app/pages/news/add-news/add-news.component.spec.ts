@@ -62,7 +62,7 @@ describe('AddNewsComponent', () => {
     component.createNewsForm();
     fixture.detectChanges();
   });
-  it('should be created', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -78,18 +78,6 @@ describe('AddNewsComponent', () => {
     elem.triggerEventHandler('click', null);
     expect(toastr.success).toHaveBeenCalled();
   });
-  // it('Should NOT add news if valid data is not entered', () => {
-  //     component.addNewsForm.patchValue({
-  //         title: null,
-  //         summary: 'test summary',
-  //         description: 'test decription',
-  //         fullArticle: 'test article'
-  //     });
-
-  //     const elem = fixture.debugElement.query(By.css('#btn-add'));
-  //     elem.triggerEventHandler('click', null);
-  //     expect(toastr.success).not.toHaveBeenCalled();
-  // });
 
   it('Should go back news page if "Cancel" btn clicked', () => {
     const elem = fixture.debugElement.query(By.css('#btn-cancel'));

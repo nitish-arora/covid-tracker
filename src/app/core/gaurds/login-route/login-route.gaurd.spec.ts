@@ -5,6 +5,11 @@ import { ToastrService } from 'ngx-toastr';
 import { LOCAL_STORAGE } from 'src/app/shared/config/storage.config';
 import { APP_ROUTES } from 'src/app/shared/config/routes.config';
 
+class MockedRouter {
+  navigate() {
+  }
+}
+
 class MockActivatedRouteSnapshot {
   _routeConfig: any;
   get routeConfig() {
@@ -29,7 +34,7 @@ describe('Login Route Gaurd', () => {
       TestBed.configureTestingModule({
         providers: [
           LoginRouteGaurd,
-          { provide: Router, useValue: mockRouter },
+          { provide: Router, useClass: MockedRouter },
           {
             provide: ActivatedRouteSnapshot,
             useClass: MockActivatedRouteSnapshot,
@@ -42,16 +47,13 @@ describe('Login Route Gaurd', () => {
       toastrService = TestBed.inject(ToastrService);
     });
 
-    afterEach(() => {
-      localStorage.removeItem(LOCAL_STORAGE.TOKEN_KEY);
-    });
-
     it('should be created', () => {
       expect(loginGaurd).toBeTruthy();
     });
 
     it('Redirect to dashboard if login url is hit and user is logged in', () => {
       route = TestBed.inject(ActivatedRouteSnapshot);
+      spyOn(router, 'navigate');
       spyOnProperty(route, 'routeConfig', 'get').and.returnValue({
         path: 'login',
       });
@@ -65,6 +67,8 @@ describe('Login Route Gaurd', () => {
     });
 
     it('Allow navigate to login url if user is not logged in', () => {
+      localStorage.removeItem(LOCAL_STORAGE.TOKEN_KEY);
+      spyOn(router, 'navigate');
       route = TestBed.inject(ActivatedRouteSnapshot);
       spyOnProperty(route, 'routeConfig', 'get').and.returnValue({
         path: 'login',

@@ -8,4 +8,12 @@ import { Subject } from 'rxjs';
 export class AppContextService {
   // variable to reflect if user is logged in or not
   isUserLoggedIn: Subject<boolean> = new Subject<boolean>();
+
+  login() {
+    this.isUserLoggedIn.next(true);
+  }
+
+  logout() {
+    this.isUserLoggedIn.next(false);
+  }
 }

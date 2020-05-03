@@ -55,7 +55,7 @@ export class LoginComponent {
       ) {
         localStorage.setItem(LOCAL_STORAGE.TOKEN_KEY, 'Basic bml0aXNo');
         localStorage.setItem(LOCAL_STORAGE.USERNAME_KEY, data.username);
-        this.appContextService.isUserLoggedIn.next(true);
+        this.appContextService.login();
         this.router.navigate([`${APP_ROUTES.DASHBOARD}`]);
         this.toastrService.success('Login Successful!!');
       } else {

@@ -79,7 +79,7 @@ export class HeaderComponent implements OnInit {
   logOut() {
     this.router.navigate([`/${APP_ROUTES.LOGOUT}`]).then(() => {
       localStorage.clear();
-      this.appContextService.isUserLoggedIn.next(false);
+      this.appContextService.logout();
     });
   }
 }

@@ -9,7 +9,7 @@ import { LoginRouteGaurd } from './core/gaurds/login-route/login-route.gaurd';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',

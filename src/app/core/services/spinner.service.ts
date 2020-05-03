@@ -16,7 +16,7 @@ export class SpinnerService {
   }
 
   /**
-   * emitting value for showing spinner
+   * emitting value for hiding spinner
    */
   done() {
     this.isRequesting.next(false);

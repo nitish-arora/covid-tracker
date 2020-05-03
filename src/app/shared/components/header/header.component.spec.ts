@@ -25,14 +25,6 @@ describe('HeaderComponent', () => {
       declarations: [HeaderComponent],
       providers: [
         AppContextService,
-        // {
-        //   provide: Router,
-        //   useValue: {
-        //     url: '/dashboard',
-        //     events: of(new NavigationEnd(0, '/dashboard', '/news')),
-        //     navigate: {},
-        //   },
-        // },
       ],
     }).compileComponents();
   }));
